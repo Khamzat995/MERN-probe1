@@ -1,5 +1,5 @@
 import { Button } from "@mui/material"
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import { useContext, useState } from "react"
 import { useParams } from "react-router"
 import Swal from "sweetalert2"
@@ -49,10 +49,51 @@ export default function ProductDetail() {
             <div className="detail__content--container">
                 <div className="detail__content">
                 {/*<p>Категория: <span className="product__detail--title">{productDetail.category}</span></p>*/}
-                <h2 className="product__detail--title">{productDetail.title}</h2>
+                <h2 className="product__detail--title">
+                    {/*{productDetail.title}*/}
+                    {
+                        productDetail.title === "гостиная" &&
+                        <p title="product-title">{t('product-title-1')}</p>
+                    }
+                    {
+                        productDetail.title === "миски" &&
+                        <p title="product-title">{t('product-title-2')}</p>
+                    }
+                    {
+                        productDetail.title === "покрывало" &&
+                        <p title="product-title">{t('product-title-3')}</p>
+                    }
+                    {
+                        productDetail.title === "сумка" &&
+                        <p title="product-title">{t('product-title-4')}</p>
+                    }
+                    {
+                        productDetail.title === "посуда" &&
+                        <p title="product-title">{t('product-title-5')}</p>
+                    }
+                </h2>
                 <h2>{t('product-price')}: ${productDetail.price}</h2>
                 <p>{productDetail.description}</p>
-                <p>{productDetail.content}</p>
+
+                <p>
+                    {/*{productDetail.content}*/}
+                    {
+                        productDetail.content === "Производство Китай." &&
+                        <p >{t('product-content-1')}</p>
+                    }
+
+                    {
+                        productDetail.content === "производство Турция" &&
+                        <p>{t('product-content-2')}</p>
+                    }
+
+                    {
+                        productDetail.content === "Производство Иран" &&
+                        <p>{t('product-content-3')}</p>
+                    }
+
+                </p>
+
                 </div>
                 <div>
                     <Button variant="contained" color="success" onClick={addToCart}
